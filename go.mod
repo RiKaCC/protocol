@@ -1,4 +1,4 @@
-module github.com/RiKaCC/protocol
+module github.com/RikaCC/protocol
 
 go 1.17
 
