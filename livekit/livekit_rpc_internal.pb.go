@@ -7,6 +7,7 @@
 package livekit
 
 import (
+	livekit "github.com/RikaCC/protocol/livekit"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -110,21 +111,21 @@ func (m *StartEgressRequest) GetRequest() isStartEgressRequest_Request {
 	return nil
 }
 
-func (x *StartEgressRequest) GetRoomComposite() *RoomCompositeEgressRequest {
+func (x *StartEgressRequest) GetRoomComposite() *livekit.RoomCompositeEgressRequest {
 	if x, ok := x.GetRequest().(*StartEgressRequest_RoomComposite); ok {
 		return x.RoomComposite
 	}
 	return nil
 }
 
-func (x *StartEgressRequest) GetTrackComposite() *TrackCompositeEgressRequest {
+func (x *StartEgressRequest) GetTrackComposite() *livekit.TrackCompositeEgressRequest {
 	if x, ok := x.GetRequest().(*StartEgressRequest_TrackComposite); ok {
 		return x.TrackComposite
 	}
 	return nil
 }
 
-func (x *StartEgressRequest) GetTrack() *TrackEgressRequest {
+func (x *StartEgressRequest) GetTrack() *livekit.TrackEgressRequest {
 	if x, ok := x.GetRequest().(*StartEgressRequest_Track); ok {
 		return x.Track
 	}
@@ -157,15 +158,15 @@ type isStartEgressRequest_Request interface {
 }
 
 type StartEgressRequest_RoomComposite struct {
-	RoomComposite *RoomCompositeEgressRequest `protobuf:"bytes,5,opt,name=room_composite,json=roomComposite,proto3,oneof"`
+	RoomComposite *livekit.RoomCompositeEgressRequest `protobuf:"bytes,5,opt,name=room_composite,json=roomComposite,proto3,oneof"`
 }
 
 type StartEgressRequest_TrackComposite struct {
-	TrackComposite *TrackCompositeEgressRequest `protobuf:"bytes,6,opt,name=track_composite,json=trackComposite,proto3,oneof"`
+	TrackComposite *livekit.TrackCompositeEgressRequest `protobuf:"bytes,6,opt,name=track_composite,json=trackComposite,proto3,oneof"`
 }
 
 type StartEgressRequest_Track struct {
-	Track *TrackEgressRequest `protobuf:"bytes,7,opt,name=track,proto3,oneof"`
+	Track *livekit.TrackEgressRequest `protobuf:"bytes,7,opt,name=track,proto3,oneof"`
 }
 
 func (*StartEgressRequest_RoomComposite) isStartEgressRequest_Request() {}
@@ -251,14 +252,14 @@ func (m *EgressRequest) GetRequest() isEgressRequest_Request {
 	return nil
 }
 
-func (x *EgressRequest) GetUpdateStream() *UpdateStreamRequest {
+func (x *EgressRequest) GetUpdateStream() *livekit.UpdateStreamRequest {
 	if x, ok := x.GetRequest().(*EgressRequest_UpdateStream); ok {
 		return x.UpdateStream
 	}
 	return nil
 }
 
-func (x *EgressRequest) GetStop() *StopEgressRequest {
+func (x *EgressRequest) GetStop() *livekit.StopEgressRequest {
 	if x, ok := x.GetRequest().(*EgressRequest_Stop); ok {
 		return x.Stop
 	}
@@ -270,11 +271,11 @@ type isEgressRequest_Request interface {
 }
 
 type EgressRequest_UpdateStream struct {
-	UpdateStream *UpdateStreamRequest `protobuf:"bytes,3,opt,name=update_stream,json=updateStream,proto3,oneof"`
+	UpdateStream *livekit.UpdateStreamRequest `protobuf:"bytes,3,opt,name=update_stream,json=updateStream,proto3,oneof"`
 }
 
 type EgressRequest_Stop struct {
-	Stop *StopEgressRequest `protobuf:"bytes,4,opt,name=stop,proto3,oneof"`
+	Stop *livekit.StopEgressRequest `protobuf:"bytes,4,opt,name=stop,proto3,oneof"`
 }
 
 func (*EgressRequest_UpdateStream) isEgressRequest_Request() {}
@@ -286,9 +287,9 @@ type EgressResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Info      *EgressInfo `protobuf:"bytes,1,opt,name=info,proto3" json:"info,omitempty"`
-	Error     string      `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
-	RequestId string      `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	Info      *livekit.EgressInfo `protobuf:"bytes,1,opt,name=info,proto3" json:"info,omitempty"`
+	Error     string              `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	RequestId string              `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
 }
 
 func (x *EgressResponse) Reset() {
@@ -323,7 +324,7 @@ func (*EgressResponse) Descriptor() ([]byte, []int) {
 	return file_livekit_rpc_internal_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *EgressResponse) GetInfo() *EgressInfo {
+func (x *EgressResponse) GetInfo() *livekit.EgressInfo {
 	if x != nil {
 		return x.Info
 	}
@@ -792,22 +793,22 @@ func file_livekit_rpc_internal_proto_rawDescGZIP() []byte {
 
 var file_livekit_rpc_internal_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_livekit_rpc_internal_proto_goTypes = []interface{}{
-	(*StartEgressRequest)(nil),          // 0: livekit.StartEgressRequest
-	(*EgressRequest)(nil),               // 1: livekit.EgressRequest
-	(*EgressResponse)(nil),              // 2: livekit.EgressResponse
-	(*IngressRequest)(nil),              // 3: livekit.IngressRequest
-	(*GetIngressInfoRequest)(nil),       // 4: livekit.GetIngressInfoRequest
-	(*IngressResponse)(nil),             // 5: livekit.IngressResponse
-	(*GetIngressInfoResponse)(nil),      // 6: livekit.GetIngressInfoResponse
-	(*RoomCompositeEgressRequest)(nil),  // 7: livekit.RoomCompositeEgressRequest
-	(*TrackCompositeEgressRequest)(nil), // 8: livekit.TrackCompositeEgressRequest
-	(*TrackEgressRequest)(nil),          // 9: livekit.TrackEgressRequest
-	(*UpdateStreamRequest)(nil),         // 10: livekit.UpdateStreamRequest
-	(*StopEgressRequest)(nil),           // 11: livekit.StopEgressRequest
-	(*EgressInfo)(nil),                  // 12: livekit.EgressInfo
-	(*UpdateIngressRequest)(nil),        // 13: livekit.UpdateIngressRequest
-	(*DeleteIngressRequest)(nil),        // 14: livekit.DeleteIngressRequest
-	(*IngressInfo)(nil),                 // 15: livekit.IngressInfo
+	(*StartEgressRequest)(nil),                  // 0: livekit.StartEgressRequest
+	(*EgressRequest)(nil),                       // 1: livekit.EgressRequest
+	(*EgressResponse)(nil),                      // 2: livekit.EgressResponse
+	(*IngressRequest)(nil),                      // 3: livekit.IngressRequest
+	(*GetIngressInfoRequest)(nil),               // 4: livekit.GetIngressInfoRequest
+	(*IngressResponse)(nil),                     // 5: livekit.IngressResponse
+	(*GetIngressInfoResponse)(nil),              // 6: livekit.GetIngressInfoResponse
+	(*livekit.RoomCompositeEgressRequest)(nil),  // 7: livekit.RoomCompositeEgressRequest
+	(*livekit.TrackCompositeEgressRequest)(nil), // 8: livekit.TrackCompositeEgressRequest
+	(*livekit.TrackEgressRequest)(nil),          // 9: livekit.TrackEgressRequest
+	(*livekit.UpdateStreamRequest)(nil),         // 10: livekit.UpdateStreamRequest
+	(*livekit.StopEgressRequest)(nil),           // 11: livekit.StopEgressRequest
+	(*livekit.EgressInfo)(nil),                  // 12: livekit.EgressInfo
+	(*UpdateIngressRequest)(nil),                // 13: livekit.UpdateIngressRequest
+	(*DeleteIngressRequest)(nil),                // 14: livekit.DeleteIngressRequest
+	(*IngressInfo)(nil),                         // 15: livekit.IngressInfo
 }
 var file_livekit_rpc_internal_proto_depIdxs = []int32{
 	7,  // 0: livekit.StartEgressRequest.room_composite:type_name -> livekit.RoomCompositeEgressRequest
@@ -832,7 +833,6 @@ func file_livekit_rpc_internal_proto_init() {
 	if File_livekit_rpc_internal_proto != nil {
 		return
 	}
-	file_livekit_egress_proto_init()
 	file_livekit_ingress_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_livekit_rpc_internal_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {

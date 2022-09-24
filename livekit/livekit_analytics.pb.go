@@ -7,6 +7,7 @@
 package livekit
 
 import (
+	livekit "github.com/RikaCC/protocol/livekit"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
@@ -661,7 +662,7 @@ type AnalyticsEvent struct {
 	MaxSubscribedVideoQuality VideoQuality           `protobuf:"varint,14,opt,name=max_subscribed_video_quality,json=maxSubscribedVideoQuality,proto3,enum=livekit.VideoQuality" json:"max_subscribed_video_quality,omitempty"`
 	Publisher                 *ParticipantInfo       `protobuf:"bytes,15,opt,name=publisher,proto3" json:"publisher,omitempty"`
 	Mime                      string                 `protobuf:"bytes,16,opt,name=mime,proto3" json:"mime,omitempty"`
-	Egress                    *EgressInfo            `protobuf:"bytes,17,opt,name=egress,proto3" json:"egress,omitempty"`
+	Egress                    *livekit.EgressInfo    `protobuf:"bytes,17,opt,name=egress,proto3" json:"egress,omitempty"`
 	Ingress                   *IngressInfo           `protobuf:"bytes,18,opt,name=ingress,proto3" json:"ingress,omitempty"`
 }
 
@@ -809,7 +810,7 @@ func (x *AnalyticsEvent) GetMime() string {
 	return ""
 }
 
-func (x *AnalyticsEvent) GetEgress() *EgressInfo {
+func (x *AnalyticsEvent) GetEgress() *livekit.EgressInfo {
 	if x != nil {
 		return x.Egress
 	}
@@ -1093,7 +1094,7 @@ var file_livekit_analytics_proto_goTypes = []interface{}{
 	(*TrackInfo)(nil),             // 12: livekit.TrackInfo
 	(*ClientInfo)(nil),            // 13: livekit.ClientInfo
 	(VideoQuality)(0),             // 14: livekit.VideoQuality
-	(*EgressInfo)(nil),            // 15: livekit.EgressInfo
+	(*livekit.EgressInfo)(nil),    // 15: livekit.EgressInfo
 	(*IngressInfo)(nil),           // 16: livekit.IngressInfo
 	(*emptypb.Empty)(nil),         // 17: google.protobuf.Empty
 }
@@ -1132,7 +1133,6 @@ func file_livekit_analytics_proto_init() {
 		return
 	}
 	file_livekit_models_proto_init()
-	file_livekit_egress_proto_init()
 	file_livekit_ingress_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_livekit_analytics_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {

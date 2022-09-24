@@ -7,6 +7,7 @@
 package livekit
 
 import (
+	livekit "github.com/RikaCC/protocol/livekit"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -774,21 +775,21 @@ func (m *AutoTrackEgress) GetOutput() isAutoTrackEgress_Output {
 	return nil
 }
 
-func (x *AutoTrackEgress) GetS3() *S3Upload {
+func (x *AutoTrackEgress) GetS3() *livekit.S3Upload {
 	if x, ok := x.GetOutput().(*AutoTrackEgress_S3); ok {
 		return x.S3
 	}
 	return nil
 }
 
-func (x *AutoTrackEgress) GetGcp() *GCPUpload {
+func (x *AutoTrackEgress) GetGcp() *livekit.GCPUpload {
 	if x, ok := x.GetOutput().(*AutoTrackEgress_Gcp); ok {
 		return x.Gcp
 	}
 	return nil
 }
 
-func (x *AutoTrackEgress) GetAzure() *AzureBlobUpload {
+func (x *AutoTrackEgress) GetAzure() *livekit.AzureBlobUpload {
 	if x, ok := x.GetOutput().(*AutoTrackEgress_Azure); ok {
 		return x.Azure
 	}
@@ -800,15 +801,15 @@ type isAutoTrackEgress_Output interface {
 }
 
 type AutoTrackEgress_S3 struct {
-	S3 *S3Upload `protobuf:"bytes,2,opt,name=s3,proto3,oneof"`
+	S3 *livekit.S3Upload `protobuf:"bytes,2,opt,name=s3,proto3,oneof"`
 }
 
 type AutoTrackEgress_Gcp struct {
-	Gcp *GCPUpload `protobuf:"bytes,3,opt,name=gcp,proto3,oneof"`
+	Gcp *livekit.GCPUpload `protobuf:"bytes,3,opt,name=gcp,proto3,oneof"`
 }
 
 type AutoTrackEgress_Azure struct {
-	Azure *AzureBlobUpload `protobuf:"bytes,4,opt,name=azure,proto3,oneof"`
+	Azure *livekit.AzureBlobUpload `protobuf:"bytes,4,opt,name=azure,proto3,oneof"`
 }
 
 func (*AutoTrackEgress_S3) isAutoTrackEgress_Output() {}
@@ -2927,42 +2928,42 @@ func file_livekit_models_proto_rawDescGZIP() []byte {
 var file_livekit_models_proto_enumTypes = make([]protoimpl.EnumInfo, 10)
 var file_livekit_models_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
 var file_livekit_models_proto_goTypes = []interface{}{
-	(TrackType)(0),                // 0: livekit.TrackType
-	(TrackSource)(0),              // 1: livekit.TrackSource
-	(VideoQuality)(0),             // 2: livekit.VideoQuality
-	(ConnectionQuality)(0),        // 3: livekit.ConnectionQuality
-	(ClientConfigSetting)(0),      // 4: livekit.ClientConfigSetting
-	(DisconnectReason)(0),         // 5: livekit.DisconnectReason
-	(ParticipantInfo_State)(0),    // 6: livekit.ParticipantInfo.State
-	(DataPacket_Kind)(0),          // 7: livekit.DataPacket.Kind
-	(ServerInfo_Edition)(0),       // 8: livekit.ServerInfo.Edition
-	(ClientInfo_SDK)(0),           // 9: livekit.ClientInfo.SDK
-	(*Room)(nil),                  // 10: livekit.Room
-	(*RoomInternal)(nil),          // 11: livekit.RoomInternal
-	(*AutoTrackEgress)(nil),       // 12: livekit.AutoTrackEgress
-	(*Codec)(nil),                 // 13: livekit.Codec
-	(*ParticipantPermission)(nil), // 14: livekit.ParticipantPermission
-	(*ParticipantInfo)(nil),       // 15: livekit.ParticipantInfo
-	(*SimulcastCodecInfo)(nil),    // 16: livekit.SimulcastCodecInfo
-	(*TrackInfo)(nil),             // 17: livekit.TrackInfo
-	(*VideoLayer)(nil),            // 18: livekit.VideoLayer
-	(*DataPacket)(nil),            // 19: livekit.DataPacket
-	(*ActiveSpeakerUpdate)(nil),   // 20: livekit.ActiveSpeakerUpdate
-	(*SpeakerInfo)(nil),           // 21: livekit.SpeakerInfo
-	(*UserPacket)(nil),            // 22: livekit.UserPacket
-	(*ParticipantTracks)(nil),     // 23: livekit.ParticipantTracks
-	(*ServerInfo)(nil),            // 24: livekit.ServerInfo
-	(*ClientInfo)(nil),            // 25: livekit.ClientInfo
-	(*ClientConfiguration)(nil),   // 26: livekit.ClientConfiguration
-	(*VideoConfiguration)(nil),    // 27: livekit.VideoConfiguration
-	(*DisabledCodecs)(nil),        // 28: livekit.DisabledCodecs
-	(*RTPStats)(nil),              // 29: livekit.RTPStats
-	(*TimedVersion)(nil),          // 30: livekit.TimedVersion
-	nil,                           // 31: livekit.RTPStats.GapHistogramEntry
-	(*S3Upload)(nil),              // 32: livekit.S3Upload
-	(*GCPUpload)(nil),             // 33: livekit.GCPUpload
-	(*AzureBlobUpload)(nil),       // 34: livekit.AzureBlobUpload
-	(*timestamppb.Timestamp)(nil), // 35: google.protobuf.Timestamp
+	(TrackType)(0),                  // 0: livekit.TrackType
+	(TrackSource)(0),                // 1: livekit.TrackSource
+	(VideoQuality)(0),               // 2: livekit.VideoQuality
+	(ConnectionQuality)(0),          // 3: livekit.ConnectionQuality
+	(ClientConfigSetting)(0),        // 4: livekit.ClientConfigSetting
+	(DisconnectReason)(0),           // 5: livekit.DisconnectReason
+	(ParticipantInfo_State)(0),      // 6: livekit.ParticipantInfo.State
+	(DataPacket_Kind)(0),            // 7: livekit.DataPacket.Kind
+	(ServerInfo_Edition)(0),         // 8: livekit.ServerInfo.Edition
+	(ClientInfo_SDK)(0),             // 9: livekit.ClientInfo.SDK
+	(*Room)(nil),                    // 10: livekit.Room
+	(*RoomInternal)(nil),            // 11: livekit.RoomInternal
+	(*AutoTrackEgress)(nil),         // 12: livekit.AutoTrackEgress
+	(*Codec)(nil),                   // 13: livekit.Codec
+	(*ParticipantPermission)(nil),   // 14: livekit.ParticipantPermission
+	(*ParticipantInfo)(nil),         // 15: livekit.ParticipantInfo
+	(*SimulcastCodecInfo)(nil),      // 16: livekit.SimulcastCodecInfo
+	(*TrackInfo)(nil),               // 17: livekit.TrackInfo
+	(*VideoLayer)(nil),              // 18: livekit.VideoLayer
+	(*DataPacket)(nil),              // 19: livekit.DataPacket
+	(*ActiveSpeakerUpdate)(nil),     // 20: livekit.ActiveSpeakerUpdate
+	(*SpeakerInfo)(nil),             // 21: livekit.SpeakerInfo
+	(*UserPacket)(nil),              // 22: livekit.UserPacket
+	(*ParticipantTracks)(nil),       // 23: livekit.ParticipantTracks
+	(*ServerInfo)(nil),              // 24: livekit.ServerInfo
+	(*ClientInfo)(nil),              // 25: livekit.ClientInfo
+	(*ClientConfiguration)(nil),     // 26: livekit.ClientConfiguration
+	(*VideoConfiguration)(nil),      // 27: livekit.VideoConfiguration
+	(*DisabledCodecs)(nil),          // 28: livekit.DisabledCodecs
+	(*RTPStats)(nil),                // 29: livekit.RTPStats
+	(*TimedVersion)(nil),            // 30: livekit.TimedVersion
+	nil,                             // 31: livekit.RTPStats.GapHistogramEntry
+	(*livekit.S3Upload)(nil),        // 32: livekit.S3Upload
+	(*livekit.GCPUpload)(nil),       // 33: livekit.GCPUpload
+	(*livekit.AzureBlobUpload)(nil), // 34: livekit.AzureBlobUpload
+	(*timestamppb.Timestamp)(nil),   // 35: google.protobuf.Timestamp
 }
 var file_livekit_models_proto_depIdxs = []int32{
 	13, // 0: livekit.Room.enabled_codecs:type_name -> livekit.Codec
@@ -3011,7 +3012,6 @@ func file_livekit_models_proto_init() {
 	if File_livekit_models_proto != nil {
 		return
 	}
-	file_livekit_egress_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_livekit_models_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Room); i {

@@ -7,6 +7,7 @@
 package livekit
 
 import (
+	livekit "github.com/RikaCC/protocol/livekit"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -32,7 +33,7 @@ type WebhookEvent struct {
 	// set when event is participant_* or track_*
 	Participant *ParticipantInfo `protobuf:"bytes,3,opt,name=participant,proto3" json:"participant,omitempty"`
 	// set when event is egress_*
-	EgressInfo *EgressInfo `protobuf:"bytes,9,opt,name=egress_info,json=egressInfo,proto3" json:"egress_info,omitempty"`
+	EgressInfo *livekit.EgressInfo `protobuf:"bytes,9,opt,name=egress_info,json=egressInfo,proto3" json:"egress_info,omitempty"`
 	// set when event is ingress_*
 	IngressInfo *IngressInfo `protobuf:"bytes,10,opt,name=ingress_info,json=ingressInfo,proto3" json:"ingress_info,omitempty"`
 	// set when event is track_*
@@ -96,7 +97,7 @@ func (x *WebhookEvent) GetParticipant() *ParticipantInfo {
 	return nil
 }
 
-func (x *WebhookEvent) GetEgressInfo() *EgressInfo {
+func (x *WebhookEvent) GetEgressInfo() *livekit.EgressInfo {
 	if x != nil {
 		return x.EgressInfo
 	}
@@ -183,12 +184,12 @@ func file_livekit_webhook_proto_rawDescGZIP() []byte {
 
 var file_livekit_webhook_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_livekit_webhook_proto_goTypes = []interface{}{
-	(*WebhookEvent)(nil),    // 0: livekit.WebhookEvent
-	(*Room)(nil),            // 1: livekit.Room
-	(*ParticipantInfo)(nil), // 2: livekit.ParticipantInfo
-	(*EgressInfo)(nil),      // 3: livekit.EgressInfo
-	(*IngressInfo)(nil),     // 4: livekit.IngressInfo
-	(*TrackInfo)(nil),       // 5: livekit.TrackInfo
+	(*WebhookEvent)(nil),       // 0: livekit.WebhookEvent
+	(*Room)(nil),               // 1: livekit.Room
+	(*ParticipantInfo)(nil),    // 2: livekit.ParticipantInfo
+	(*livekit.EgressInfo)(nil), // 3: livekit.EgressInfo
+	(*IngressInfo)(nil),        // 4: livekit.IngressInfo
+	(*TrackInfo)(nil),          // 5: livekit.TrackInfo
 }
 var file_livekit_webhook_proto_depIdxs = []int32{
 	1, // 0: livekit.WebhookEvent.room:type_name -> livekit.Room
@@ -209,7 +210,6 @@ func file_livekit_webhook_proto_init() {
 		return
 	}
 	file_livekit_models_proto_init()
-	file_livekit_egress_proto_init()
 	file_livekit_ingress_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_livekit_webhook_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {

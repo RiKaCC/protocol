@@ -7,6 +7,7 @@
 package livekit
 
 import (
+	livekit "github.com/RikaCC/protocol/livekit"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -118,8 +119,8 @@ type RoomEgress struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Room   *RoomCompositeEgressRequest `protobuf:"bytes,1,opt,name=room,proto3" json:"room,omitempty"`
-	Tracks *AutoTrackEgress            `protobuf:"bytes,2,opt,name=tracks,proto3" json:"tracks,omitempty"`
+	Room   *livekit.RoomCompositeEgressRequest `protobuf:"bytes,1,opt,name=room,proto3" json:"room,omitempty"`
+	Tracks *AutoTrackEgress                    `protobuf:"bytes,2,opt,name=tracks,proto3" json:"tracks,omitempty"`
 }
 
 func (x *RoomEgress) Reset() {
@@ -154,7 +155,7 @@ func (*RoomEgress) Descriptor() ([]byte, []int) {
 	return file_livekit_room_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *RoomEgress) GetRoom() *RoomCompositeEgressRequest {
+func (x *RoomEgress) GetRoom() *livekit.RoomCompositeEgressRequest {
 	if x != nil {
 		return x.Room
 	}
@@ -1201,32 +1202,32 @@ func file_livekit_room_proto_rawDescGZIP() []byte {
 
 var file_livekit_room_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
 var file_livekit_room_proto_goTypes = []interface{}{
-	(*CreateRoomRequest)(nil),           // 0: livekit.CreateRoomRequest
-	(*RoomEgress)(nil),                  // 1: livekit.RoomEgress
-	(*ListRoomsRequest)(nil),            // 2: livekit.ListRoomsRequest
-	(*ListRoomsResponse)(nil),           // 3: livekit.ListRoomsResponse
-	(*DeleteRoomRequest)(nil),           // 4: livekit.DeleteRoomRequest
-	(*DeleteRoomResponse)(nil),          // 5: livekit.DeleteRoomResponse
-	(*ListParticipantsRequest)(nil),     // 6: livekit.ListParticipantsRequest
-	(*ListParticipantsResponse)(nil),    // 7: livekit.ListParticipantsResponse
-	(*RoomParticipantIdentity)(nil),     // 8: livekit.RoomParticipantIdentity
-	(*RemoveParticipantResponse)(nil),   // 9: livekit.RemoveParticipantResponse
-	(*MuteRoomTrackRequest)(nil),        // 10: livekit.MuteRoomTrackRequest
-	(*MuteRoomTrackResponse)(nil),       // 11: livekit.MuteRoomTrackResponse
-	(*UpdateParticipantRequest)(nil),    // 12: livekit.UpdateParticipantRequest
-	(*UpdateSubscriptionsRequest)(nil),  // 13: livekit.UpdateSubscriptionsRequest
-	(*UpdateSubscriptionsResponse)(nil), // 14: livekit.UpdateSubscriptionsResponse
-	(*SendDataRequest)(nil),             // 15: livekit.SendDataRequest
-	(*SendDataResponse)(nil),            // 16: livekit.SendDataResponse
-	(*UpdateRoomMetadataRequest)(nil),   // 17: livekit.UpdateRoomMetadataRequest
-	(*RoomCompositeEgressRequest)(nil),  // 18: livekit.RoomCompositeEgressRequest
-	(*AutoTrackEgress)(nil),             // 19: livekit.AutoTrackEgress
-	(*Room)(nil),                        // 20: livekit.Room
-	(*ParticipantInfo)(nil),             // 21: livekit.ParticipantInfo
-	(*TrackInfo)(nil),                   // 22: livekit.TrackInfo
-	(*ParticipantPermission)(nil),       // 23: livekit.ParticipantPermission
-	(*ParticipantTracks)(nil),           // 24: livekit.ParticipantTracks
-	(DataPacket_Kind)(0),                // 25: livekit.DataPacket.Kind
+	(*CreateRoomRequest)(nil),                  // 0: livekit.CreateRoomRequest
+	(*RoomEgress)(nil),                         // 1: livekit.RoomEgress
+	(*ListRoomsRequest)(nil),                   // 2: livekit.ListRoomsRequest
+	(*ListRoomsResponse)(nil),                  // 3: livekit.ListRoomsResponse
+	(*DeleteRoomRequest)(nil),                  // 4: livekit.DeleteRoomRequest
+	(*DeleteRoomResponse)(nil),                 // 5: livekit.DeleteRoomResponse
+	(*ListParticipantsRequest)(nil),            // 6: livekit.ListParticipantsRequest
+	(*ListParticipantsResponse)(nil),           // 7: livekit.ListParticipantsResponse
+	(*RoomParticipantIdentity)(nil),            // 8: livekit.RoomParticipantIdentity
+	(*RemoveParticipantResponse)(nil),          // 9: livekit.RemoveParticipantResponse
+	(*MuteRoomTrackRequest)(nil),               // 10: livekit.MuteRoomTrackRequest
+	(*MuteRoomTrackResponse)(nil),              // 11: livekit.MuteRoomTrackResponse
+	(*UpdateParticipantRequest)(nil),           // 12: livekit.UpdateParticipantRequest
+	(*UpdateSubscriptionsRequest)(nil),         // 13: livekit.UpdateSubscriptionsRequest
+	(*UpdateSubscriptionsResponse)(nil),        // 14: livekit.UpdateSubscriptionsResponse
+	(*SendDataRequest)(nil),                    // 15: livekit.SendDataRequest
+	(*SendDataResponse)(nil),                   // 16: livekit.SendDataResponse
+	(*UpdateRoomMetadataRequest)(nil),          // 17: livekit.UpdateRoomMetadataRequest
+	(*livekit.RoomCompositeEgressRequest)(nil), // 18: livekit.RoomCompositeEgressRequest
+	(*AutoTrackEgress)(nil),                    // 19: livekit.AutoTrackEgress
+	(*Room)(nil),                               // 20: livekit.Room
+	(*ParticipantInfo)(nil),                    // 21: livekit.ParticipantInfo
+	(*TrackInfo)(nil),                          // 22: livekit.TrackInfo
+	(*ParticipantPermission)(nil),              // 23: livekit.ParticipantPermission
+	(*ParticipantTracks)(nil),                  // 24: livekit.ParticipantTracks
+	(DataPacket_Kind)(0),                       // 25: livekit.DataPacket.Kind
 }
 var file_livekit_room_proto_depIdxs = []int32{
 	1,  // 0: livekit.CreateRoomRequest.egress:type_name -> livekit.RoomEgress
@@ -1273,7 +1274,6 @@ func file_livekit_room_proto_init() {
 		return
 	}
 	file_livekit_models_proto_init()
-	file_livekit_egress_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_livekit_room_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateRoomRequest); i {
